@@ -1,0 +1,24 @@
+def maxscore(cardpoints, k):
+  n = len(cardPoints)
+  initial_sum = sum(cardPoints[:k])
+  max_sum = initial_sum
+
+  window_sum = initial_sum
+  for i in range(k):
+    window_sum = window_sum - cardPoints[k-1-i]+ cardPoints[n-1-i]
+    max_sum = max(max_sum, window_sum)
+
+  return max_sum
+
+// input
+def main():
+  cardPoints = []
+  n= int(input("cardsPoints = "))
+  for i in range(n):
+    cardPoints.append(int(input()))
+
+  k= int(input("k ="))
+  result = maxscore(cardPoints,k)
+  print(result)
+   if_name+ == "_main_":
+    main()
